@@ -26,11 +26,11 @@ _**Cuarto paso:** Movemos el contenido del .zip a la raiz de la instalacion de O
 ![](imagenes/zip.gif)
 
 
-_**Quinto paso (PC de Juego):** Abirmos OBS, damos permisos al FIREWALL, nos vamos a la pestaña "Herramientas", pinchamos sobre NDI Output Settings, habilitamos "Main OUTPUT" y lo nombramos como nos apetezca, pulsamos en ACEPTAR y añadimos una fuente, por ejemplo, "Captura de Pantalla"_
+_**Quinto paso (PC de Juego):** Abirmos OBS, damos permisos al FIREWALL, nos vamos a la pestaña "Herramientas", pinchamos sobre NDI Output Settings, habilitamos "Main OUTPUT" y lo nombramos como nos apetezca, pulsamos en ACEPTAR y añadimos una fuente, por ejemplo, "Captura de Pantalla"._
 
 ![](imagenes/pcjuego.gif)
 
-_**Quinto paso (PC de Stream):** Abirmos OBS, damos permisos al FIREWALL, añadimos una fuente de tipo "NDI Source", se nos abrirá una ventana, donde pone "Source Name" nos aparecerán todos los PC que hemos puesto a retransmitir en el Quinto Paso para el PC de Juego_
+_**Quinto paso (PC de Stream):** Abirmos OBS, damos permisos al FIREWALL, añadimos una fuente de tipo "NDI Source", se nos abrirá una ventana, donde pone "Source Name" nos aparecerán todos los PC que hemos puesto a retransmitir en el Quinto Paso para el PC de Juego, el resto de opciones NO se tocarán._
 
 ![](imagenes/pcstream.gif)
 
