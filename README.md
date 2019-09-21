@@ -1,98 +1,42 @@
-# Cómo instalar servidor de CS:GO en Linux (Ubuntu 18.04)
+# Cómo pinchar varios PC desde otro
 
-_En este caso usaré Ubuntu 18.04 Server_
 
 ## Comenzando 🚀
 
-_Para poder comenzar lo que tendreis que hacer es descargaros [Ubuntu Server](https://www.ubuntu.com/download/server/thank-you?version=18.04.2&architecture=amd64). En este tutorial voy a seguir las instrucciones que podemos encontrar en [LGSM](https://linuxgsm.com/lgsm/csgoserver/)._
+_Para poder comenzar el primer paso que realizaremos será descargar [OBS Studio](https://obsproject.com/es) en ambos PC, opcionalmente en el PC desde el que vamos a realizar el Stream podemos descargar [OBS Streamlabs](https://streamlabs.com/streamlabs-obs)._
 
-## Pre-requisitos 📋
-
-_En mi caso he montado 4 servidores de CS:GO para la Teleco LAN Party usando Proxmox, con Ubuntu Server, a cada servidor de CS:GO le he dedicado:_
-
-* 2 Cores
-* 2 GB de RAM
-* 40 GB de memoria (para poder realizar al menos una copia de seguridad de cada servidor)
 
 ## Instalación 🔧
 
-_A continuación vamos a ver los pasos que tenemos que seguir para realizar una correcta instalación del servidor._
+_A continuación vamos a ver los pasos que tenemos que seguir para realizar una correcta instalación._
 
-_**Primer paso:** Instalar los programas necesarios para iniciar el servidor_
+_**Primer paso:** Instalar OBS en ambos PC, como hemos indicado anteriormente_
 
-```
-sudo dpkg --add-architecture i386; sudo apt update; sudo apt install mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386
-```
 
-_**Segundo paso:** Crearemos un usuario para la gestión del servidor, ya que no podemos iniciarlo con "sudo"_
+_**Segundo paso:** Una vez tengamos instalado OBS en ambos PC realizaremos los siguientes pasos dependiendo de si se trata del PC de Stream o el PC de Juego._
 
-```
-adduser csgoserver
-```
 
-_**Tercer paso:** Nos loguearemos con el usuario que acabamos de crear_
+_**Tercer paso:** Descargamos el plugin de [NDI para OBS](https://github.com/Palakis/obs-ndi/releases/tag/4.7.0), descargaremos el RUNTIME y el .zip_
 
-```
-su - csgoserver
-```
+![](imagenes/ndi-obs.gif)
 
-_**Cuarto paso:** Descarga el instalador_
 
+_**Cuarto paso:** Movemos el contenido del .zip a la raiz de la instalacion de OBS e instalaremos el RUNTIME._
+
+![](imagenes/zip.gif)
 ```
 wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh csgoserver
 ```
 
-_**Quinto paso:** Ejecuta el instalador, recuerda que NO puedes ejecutarlo como "sudo" y este se encuentra en la raiz del usuario "csgoserver"_
+_**Quinto paso (PC de Juego):** Abirmos OBS, damos permisos al FIREWALL, nos vamos a la pestaña "Herramientas", pinchamos sobre NDI Output Settings, habilitamos "Main OUTPUT" y lo nombramos como nos apetezca, pulsamos en ACEPTAR y añadimos una fuente, por ejemplo, "Captura de Pantalla"_
 
-```
-./csgoserver install
-```
+![](imagenes/pcjuego.gif)
 
-_Una vez acabado este proceso, tendrás que añadir un [Steam Game Server Login Token (GSLT)](https://steamcommunity.com/dev/managegameservers)_
+_**Quinto paso (PC de Stream):** Abirmos OBS, damos permisos al FIREWALL, añadimos una fuente de tipo "NDI Source", se nos abrirá una ventana, donde pone "Source Name" nos aparecerán todos los PC que hemos puesto a retransmitir en el Quinto Paso para el PC de Juego_
 
-![](imagenes/gslt.gif)
+![](imagenes/pcstream.gif)
 
-_Si no sabes dónde añadir el GSLT haz [click aquí.](https://github.com/aruznieto/CSGO_Server/wiki/%C2%BFC%C3%B3mo-a%C3%B1ado-o-cambio-el-GSLT%3F)_
-
-## Ejecutando las pruebas ⚙️
-_Para saber si tu servidor se está ejecutando correctamente o te da algún fallo que no sabes solucionar puedes poner lo siguiente._
-```
-./csgoserver debug
-```
-_Ahí te dirá que es lo que está fallando. Si tienes algún otro problema, no dudes en comentarlo._
-
-
-## Gestionar tu servidor ✔️
-
-_Para INICIAR tu servidor simplemente tendrás que poner:_
-```
-./csgoserver start
-```
-
-_Para PARAR tu servidor simplemente tendrás que poner:_
-```
-./csgoserver stop
-```
-
-_Para REINICIAR tu servidor simplemente tendrás que poner:_
-```
-./csgoserver restart
-```
-
-_Para ver si tu servidor se está ejecutando pon:_
-```
-./csgoserver details
-```
-_Ahí podrás ver la contraseña y la RCON de tu servidor (si la has puesto), los puertos y la IP que usa, y mucha más información
-
-## Construido con 🛠️
-
-* [Ubuntu](https://www.ubuntu.com/download/server/thank-you?version=18.04.2&architecture=amd64)
-* [LGSM](https://linuxgsm.com/lgsm/csgoserver/)
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo configurar el servidor en nuestra [Wiki](https://github.com/aruznieto/CSGO_Server/wiki)
+**¡RECUERDA!** Para que se vea bien la pantalla en el PC de Stream, tenemos que poner la misma configuracion de video en todos los OBS. En mi caso lo estoy haciendo a 1080p60FPS.
 
 ## Autores ✒️
 
