@@ -24,9 +24,7 @@ _**Tercer paso:** Descargamos el plugin de [NDI para OBS](https://github.com/Pal
 _**Cuarto paso:** Movemos el contenido del .zip a la raiz de la instalacion de OBS e instalaremos el RUNTIME._
 
 ![](imagenes/zip.gif)
-```
-wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh csgoserver
-```
+
 
 _**Quinto paso (PC de Juego):** Abirmos OBS, damos permisos al FIREWALL, nos vamos a la pestaña "Herramientas", pinchamos sobre NDI Output Settings, habilitamos "Main OUTPUT" y lo nombramos como nos apetezca, pulsamos en ACEPTAR y añadimos una fuente, por ejemplo, "Captura de Pantalla"_
 
