@@ -1,4 +1,4 @@
-# Cómo pinchar varios PC desde otro
+# Cómo instalar y usar Grafana
 
 
 ## Comenzando 🚀
